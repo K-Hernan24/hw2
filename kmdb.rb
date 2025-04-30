@@ -77,12 +77,80 @@
 # Use `Model.destroy_all` code.
 # TODO!
 
+Actor.destroy_all
+Movie.destroy_all
+Role.destroy_all
+Studio.destroy_all
+
+
 # Generate models and tables, according to the domain model.
 # TODO!
 
 # Insert data into the database that reflects the sample data shown above.
 # Do not use hard-coded foreign key IDs.
 # TODO!
+
+#Insert data into studios table
+
+number_studios = Studio.all.count 
+p "The number of records in studios table are: #{number_studios}"
+
+new_studio = Studio.new
+new_studio["name"] = "Warner Bros."
+new_studio.save
+
+number_studios = Studio.all.count 
+p "The number of records in studios table are: #{number_studios}"
+
+#Insert data into actors table
+
+number_actors = Actor.all.count 
+p "The number of records in actors table are: #{number_actors}"
+
+
+actors_name = [
+"Christian Bale", "Michael Caine" , "Liam Neeson",
+"Katie Holmes","Gary Oldman","Heath Ledger","Aaron Eckhart",
+"Maggie Gyllenhaal","Tom Hardy","Joseph Gordon-Levitt","Anne Hathaway"
+]
+
+for actor in actors_name
+    new_actor = Actor.new
+    new_actor["name"] = actor
+    new_actor.save
+end
+
+number_actors = Actor.all.count 
+p "The number of records in actors table are: #{number_actors}"
+
+#Insert data into movies table
+
+p "The number of records in movies table are: "
+
+new_movie = Movie.new
+new_movie["title"] = "Batman Begins"
+new_movie["year_released"] = 2005
+new_movie["rated"] = "PG-13"
+new_movie["studio_id"] = Studio.find_by({"name" => "Warner Bros."})["id"]
+new_movie.save
+
+new_movie = Movie.new
+new_movie["title"] = "The Dark Knight"
+new_movie["year_released"] = 2008
+new_movie["rated"] = "PG-13"
+new_movie["studio_id"] = Studio.find_by({"name" => "Warner Bros."})["id"]
+new_movie.save
+
+new_movie = Movie.new
+new_movie["title"] = "The Dark Knight"
+new_movie["year_released"] = 2008
+new_movie["rated"] = "PG-13"
+new_movie["studio_id"] = Studio.find_by({"name" => "Warner Bros."})["id"]
+new_movie.save
+p "The number of records in movies table are: "
+
+#Insert data into roles table
+
 
 # Prints a header for the movies output
 puts "Movies"
