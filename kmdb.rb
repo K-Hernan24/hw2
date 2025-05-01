@@ -77,9 +77,7 @@
 # Use `Model.destroy_all` code.
 # TODO!
 
-p "Got to this part of code"
 Actor.destroy_all
-p "Got to this part of code"
 Movie.destroy_all
 Role.destroy_all
 Studio.destroy_all
@@ -94,20 +92,20 @@ Studio.destroy_all
 
 #Insert data into studios table
 
-number_studios = Studio.all.count 
-p "The number of records in studios table are: #{number_studios}"
+#number_studios = Studio.all.count 
+#p "The number of records in studios table are: #{number_studios}"
 
 new_studio = Studio.new
 new_studio["name"] = "Warner Bros."
 new_studio.save
 
-number_studios = Studio.all.count 
-p "The number of records in studios table are: #{number_studios}"
+# number_studios = Studio.all.count 
+# p "The number of records in studios table are: #{number_studios}"
 
 #Insert data into actors table
 
-number_actors = Actor.all.count 
-p "The number of records in actors table are: #{number_actors}"
+# number_actors = Actor.all.count 
+# p "The number of records in actors table are: #{number_actors}"
 
 
 actors_name = [
@@ -122,13 +120,13 @@ for actor in actors_name
     new_actor.save
 end
 
-number_actors = Actor.all.count 
-p "The number of records in actors table are: #{number_actors}"
+# number_actors = Actor.all.count 
+# p "The number of records in actors table are: #{number_actors}"
 
 #Insert data into movies table
 
-number_movies = Movie.all.count
-p "The number of records in movies table are: #{number_movies} "
+# number_movies = Movie.all.count
+# p "The number of records in movies table are: #{number_movies} "
 
 new_movie = Movie.new
 new_movie["title"] = "Batman Begins"
@@ -151,13 +149,13 @@ new_movie["rated"] = "PG-13"
 new_movie["studio_id"] = Studio.find_by({"name" => "Warner Bros."})["id"]
 new_movie.save
 
-number_movies = Movie.all.count
-p "The number of records in movies table are: #{number_movies} "
+# number_movies = Movie.all.count
+# p "The number of records in movies table are: #{number_movies} "
 
 #Insert data into roles table
 
-number_roles = Role.all.count
-p "The number of records in roles table are: #{number_roles}"
+# number_roles = Role.all.count
+# p "The number of records in roles table are: #{number_roles}"
 
 #Declaration of variables that hold movie hash
 batman_begins = Movie.find_by({"title" => "Batman Begins"})
@@ -269,8 +267,8 @@ new_role["actor_id"] = anne_hathaway["id"]
 new_role["character_name"] = "Selina Kyle"
 new_role.save
 
-number_roles = Role.all.count
-p "The number of records in roles table are: #{number_roles}"
+# number_roles = Role.all.count
+# p "The number of records in roles table are: #{number_roles}"
 
 # Prints a header for the movies output
 puts "Movies"
