@@ -297,3 +297,10 @@ puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie.
 # TODO!
+
+for role in Role.all
+    movie_title = Movie.find_by({"id" => role["movie_id"]})["title"]
+    actor_name = Actor.find_by({"id" => role["actor_id"]})["name"]
+    character_name = role["character_name"]
+    p "#{movie_title}, #{actor_name}, #{character_name}"
+end
